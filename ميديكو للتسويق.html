@@ -1,0 +1,792 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ميديكو للتسويق</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: one dark violet world. Right-to-left long scroll; contour "ribbed" object in hero echoes the brand's motion. Purple carries the page, lime appears only on the single most important word or action per section. */
+:root{
+  --ink:#0A0613; --ink-2:#120B20; --ink-3:#1B1230; --line:#2C2147;
+  --fg:#F4F0FF; --muted:#A99DC8; --dim:#6F6391;
+  --violet:#7A3CFF; --brand:#4004A8; --lime:#C8F23A; --on-lime:#140B22;
+  --display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Alexandria",system-ui,sans-serif;
+  --r:18px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.site{direction:rtl;overflow-x:clip}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);line-height:1.25;margin:0;text-wrap:balance}
+p{margin:0}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--violet);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:2px;background:currentColor;border-radius:2px}
+.h2{font-size:clamp(28px,4.4vw,48px);font-weight:800}
+.lead{color:var(--muted);font-size:clamp(16px,1.6vw,18px);max-width:58ch}
+.lime{color:var(--lime)}
+.grad{background:linear-gradient(90deg,#B98CFF,var(--violet) 55%,#5B19E6);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px)}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px;border-radius:8px}
+
+/* buttons */
+.btn{font-family:var(--display);font-weight:600;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--on-lime)}
+.btn-ghost{border-color:var(--line);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--violet)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ink) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .mk{width:26px;height:36px;background:linear-gradient(160deg,#C9A6FF,var(--violet));-webkit-mask:url(data:image/png;base64,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) center/contain no-repeat;mask:url(data:image/png;base64,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) center/contain no-repeat}
+.logo b{font-family:var(--display);font-weight:900;font-size:20px;letter-spacing:.06em}
+.logo small{display:block;font-size:10px;letter-spacing:.3em;color:var(--muted);font-family:var(--display);margin-top:-4px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
+.nav ul a{text-decoration:none}.nav ul a:hover{color:var(--fg)}
+.nav .btn{padding:10px 18px;font-size:14px}
+@media (max-width:860px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;padding-block:clamp(48px,7vw,96px) clamp(56px,7vw,96px)}
+.hero canvas{position:absolute;inset-block:-40px 0;inset-inline-start:-6%;width:62%;height:calc(100% + 40px);pointer-events:none;opacity:.9}
+.hero .wrap{position:relative;display:grid;gap:28px}
+.hero h1{font-size:clamp(40px,7.4vw,92px);font-weight:900;letter-spacing:-.01em;max-width:13ch}
+.hero h1 .l2{display:block}
+.hero .lead{font-size:clamp(17px,1.9vw,21px);max-width:46ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-strip{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;max-width:760px}
+.hero-strip span{display:inline-flex;align-items:center;gap:8px}
+.hero-strip span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--violet)}
+.rise{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+@keyframes rise{from{transform:translateY(18px);opacity:.001}to{transform:none;opacity:1}}
+
+/* system chain */
+.system{background:linear-gradient(180deg,var(--ink),var(--ink-2))}
+.chain{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.link{background:var(--ink-2);padding:26px 22px 28px;display:grid;gap:10px;align-content:start;position:relative;min-width:0}
+.link .n{font-family:var(--display);font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+.link h3{font-size:19px;font-weight:700}
+.link p{color:var(--muted);font-size:14.5px;line-height:1.7}
+.link:hover{background:var(--ink-3)}
+.link.goal{background:var(--brand)}
+.link.goal .n,.link.goal p{color:#E3D6FF}
+.link.goal h3{color:var(--lime)}
+@media (max-width:900px){.chain{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.chain{grid-template-columns:1fr}}
+
+.monthly{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:28px;align-items:center;padding:28px;border:1px dashed var(--line);border-radius:var(--r)}
+.monthly h3{font-size:22px}
+.monthly p{color:var(--muted);font-size:15px;margin-top:6px}
+.tally{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.tally div{display:grid;gap:2px}
+.tally b{font-family:var(--display);font-size:clamp(30px,4vw,44px);font-weight:900;line-height:1.1;font-variant-numeric:tabular-nums}
+.tally span{font-size:13px;color:var(--muted)}
+@media (max-width:760px){.monthly{grid-template-columns:1fr}.tally{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* outcomes */
+.outcomes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.oc{padding:30px 26px;border-radius:var(--r);background:var(--ink-2);border:1px solid var(--line);display:grid;gap:14px;align-content:start}
+.oc .big{font-family:var(--display);font-weight:900;font-size:clamp(34px,4vw,46px);line-height:1}
+.oc p{color:var(--muted);font-size:15px}
+.oc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:14.5px}
+.oc li{display:flex;gap:10px}.oc li::before{content:"✓";color:var(--violet);font-weight:700}
+.oc.top{background:radial-gradient(120% 90% at 100% 0%,#5A1CE0 0%,var(--brand) 45%,#22075E 100%);border-color:transparent}
+.oc.top p{color:#E3D6FF}.oc.top li::before{color:var(--lime)}
+@media (max-width:860px){.outcomes{grid-template-columns:1fr}}
+
+/* work */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tab{font-family:var(--display);font-size:14px;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.works{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media (max-width:980px){.works{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){.works{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+.work{display:grid;gap:10px;min-width:0}
+.post{aspect-ratio:4/5;max-width:100%;border-radius:14px;overflow:hidden;position:relative;background:var(--pbg);color:var(--pfg);padding:clamp(12px,1.6vw,18px);display:flex;flex-direction:column;justify-content:space-between;isolation:isolate;transition:transform .35s}
+.work:hover .post{transform:translateY(-4px) rotate(-.6deg)}
+.post .tag{font-family:var(--display);font-size:clamp(9px,.9vw,11px);font-weight:600;letter-spacing:.06em;opacity:.85;display:flex;justify-content:space-between;gap:8px}
+.post h4{font-family:var(--display);font-weight:900;font-size:clamp(17px,2.1vw,26px);line-height:1.2;margin:0;text-wrap:balance}
+.post .sub{font-size:clamp(10px,1vw,12.5px);opacity:.85;margin-top:6px;line-height:1.5}
+.post .cta{align-self:flex-start;font-family:var(--display);font-size:clamp(9px,.9vw,11px);font-weight:700;padding:6px 12px;border-radius:999px;background:var(--pac);color:var(--pbg);margin-top:10px}
+.post .shape{position:absolute;z-index:-1}
+.work figcaption{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted)}
+.work figcaption b{color:var(--fg);font-weight:600;font-family:var(--display);font-size:13.5px}
+.work[hidden]{display:none!important}
+.kind{font-size:11px;border:1px solid var(--line);padding:1px 8px;border-radius:999px;white-space:nowrap;align-self:center}
+
+/* reel */
+.reel-box{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#07040E;aspect-ratio:16/9;max-width:100%}
+.reel-box canvas{width:100%;height:100%;display:block}
+.play{position:absolute;inset:0;display:grid;place-items:center;background:transparent;border:0;cursor:pointer;color:var(--fg)}
+.play .pb{width:clamp(64px,9vw,96px);aspect-ratio:1;border-radius:50%;background:var(--lime);color:var(--on-lime);display:grid;place-items:center;box-shadow:0 0 0 12px color-mix(in srgb,var(--lime) 18%,transparent);transition:transform .2s}
+.play:hover .pb{transform:scale(1.06)}
+.play svg{width:34%;height:34%;margin-inline-end:-6%}
+.play[hidden]{display:none!important}
+.reel-bar{position:absolute;inset-inline:0;bottom:0;height:4px;background:rgba(255,255,255,.08)}
+.reel-bar i{display:block;height:100%;width:0;background:var(--lime)}
+.reel-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:16px;color:var(--muted);font-size:14px}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+.q{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:18px;align-content:space-between}
+.q blockquote{margin:0;font-size:16.5px;line-height:1.85}
+.q blockquote::before{content:"”";display:block;font-family:var(--display);font-size:56px;line-height:.6;color:var(--violet);margin-bottom:10px}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;background:var(--ink-3);color:var(--violet);flex:none}
+.who b{display:block;font-family:var(--display);font-size:15px}
+.who span{font-size:13px;color:var(--muted)}
+.stars{color:var(--lime);letter-spacing:2px;font-size:14px}
+.sample{font-size:11px;color:var(--dim);border:1px dashed var(--line);border-radius:999px;padding:2px 10px;justify-self:start}
+
+/* trust */
+.trust{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(28px,5vw,64px);align-items:start}
+.trust-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.ti{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.ti .ic{width:44px;height:44px;border-radius:12px;background:var(--ink-3);display:grid;place-items:center;color:var(--violet)}
+.ti .ic svg{width:22px;height:22px}
+.ti h3{font-size:17.5px;font-weight:700;margin-bottom:4px}
+.ti p{color:var(--muted);font-size:14.5px}
+.sectors{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.sectors span{font-size:13.5px;padding:7px 14px;border-radius:999px;background:var(--ink-2);border:1px solid var(--line)}
+@media (max-width:860px){.trust{grid-template-columns:1fr}}
+
+/* booking */
+.book{background:radial-gradient(80% 60% at 85% 0%,#2A0C6E 0%,transparent 70%),var(--ink)}
+.book-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+@media (max-width:900px){.book-grid{grid-template-columns:1fr}}
+.steps-rail{display:grid;gap:4px;margin-top:28px;counter-reset:s}
+.steps-rail li{list-style:none;display:flex;align-items:center;gap:12px;padding:10px 0;color:var(--dim);font-family:var(--display);font-size:15px}
+.steps-rail li::before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-size:13px;font-variant-numeric:tabular-nums;flex:none}
+.steps-rail li.on{color:var(--fg)}
+.steps-rail li.on::before{background:var(--violet);border-color:var(--violet);color:#fff}
+.steps-rail li.done{color:var(--muted)}
+.steps-rail li.done::before{content:"✓";background:var(--ink-3)}
+.steps-rail{padding:0;margin-bottom:0}
+.quick{margin-top:26px;padding:18px 20px;border-radius:14px;background:var(--ink-2);border:1px solid var(--line);display:grid;gap:10px;font-size:14.5px;color:var(--muted)}
+.quick .num{font-family:var(--display);color:var(--fg);direction:ltr;unicode-bidi:isolate;font-size:17px;font-variant-numeric:tabular-nums;user-select:all}
+
+.panel{background:var(--ink-2);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,3vw,34px);min-width:0}
+.prog{height:4px;border-radius:4px;background:var(--ink-3);overflow:hidden;margin-bottom:26px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--violet),var(--lime));width:20%;transition:width .4s}
+.step h3{font-size:clamp(20px,2.4vw,26px);margin-bottom:6px}
+.step .hint{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (max-width:480px){.opts{grid-template-columns:1fr}}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);cursor:pointer;font-size:15px;background:var(--ink);transition:border-color .2s,background .2s;min-height:56px}
+.opt label .dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--dim);flex:none;display:grid;place-items:center}
+.opt input[type=checkbox]+label .dot{border-radius:5px}
+.opt input:checked+label{border-color:var(--violet);background:color-mix(in srgb,var(--violet) 14%,var(--ink))}
+.opt input:checked+label .dot{border-color:var(--lime);background:var(--lime)}
+.opt input:checked+label .dot::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--on-lime)}
+.opt input:focus-visible+label{outline:2px solid var(--lime);outline-offset:2px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+.f{display:grid;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-size:13.5px;color:var(--muted);font-family:var(--display)}
+.f input,.f select,.f textarea{font:inherit;font-size:15px;color:var(--fg);background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--violet)}
+.f input[type=tel]{direction:ltr;text-align:right}
+.f .err{font-size:12.5px;color:#FF8FA8;min-height:1em}
+.step-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px;flex-wrap:wrap}
+.step-nav .btn[disabled]{opacity:.4;pointer-events:none}
+.msg{white-space:pre-wrap;background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:18px;font-size:14.5px;line-height:1.9;max-height:300px;overflow:auto}
+.note{font-size:13px;color:var(--dim);margin-top:10px}
+.sum-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.wa-btn{background:#25D366;color:#062611}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--ink-2);padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-family:var(--display);font-weight:600;font-size:16.5px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::after{content:"+";color:var(--violet);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq summary::-webkit-details-marker{display:none}
+.faq p{color:var(--muted);padding-bottom:18px;font-size:15px}
+
+/* final + footer */
+.final{text-align:center;display:grid;justify-items:center;gap:22px}
+.final h2{font-size:clamp(32px,6vw,72px);font-weight:900;max-width:16ch}
+footer{border-top:1px solid var(--line);padding-block:36px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px}
+footer img{height:72px;width:auto;opacity:.95}
+.fab{position:fixed;inset-inline-start:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;color:#062611;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);text-decoration:none}
+.fab svg{width:30px;height:30px}
+.toast{position:fixed;left:50%;bottom:calc(90px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--ink);padding:10px 18px;border-radius:999px;font-size:14px;font-family:var(--display);z-index:60}
+</style>
+
+<div class="site" dir="rtl" lang="ar">
+
+<nav class="nav" aria-label="القائمة">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="ميديكو">
+      <span class="mk" aria-hidden="true"></span>
+      <span><b>MEDICO</b><small>AGENCY</small></span>
+    </a>
+    <ul>
+      <li><a href="#system">وش نسوي</a></li>
+      <li><a href="#work">أعمالنا</a></li>
+      <li><a href="#reel">الفيديو</a></li>
+      <li><a href="#clients">آراء العملاء</a></li>
+      <li><a href="#faq">الأسئلة</a></li>
+    </ul>
+    <a class="btn btn-lime" href="#book">احجز استشارتك</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="blob" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <span class="eyebrow rise">وكالة تسويق إلكتروني · السعودية ومصر</span>
+    <h1 class="rise d1">ما نقدّم لك خدمة،<span class="l2 grad">نوصّلك <span class="lime">للأول</span> في مجالك.</span></h1>
+    <p class="lead rise d2">حنا فريق واحد يمسك تسويقك من أوله لآخره: الخطة، المحتوى، التصاميم، الفيديو، الإعلانات، الموقع، والرد على عملائك. أنت تركّز على شغلك، وحنا نشيل هم الانتشار والمبيعات.</p>
+    <div class="hero-ctas rise d3">
+      <a class="btn btn-lime" href="#book">ابدأ معنا الحين
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+      <a class="btn btn-ghost" href="#reel">شوف كيف نشتغل</a>
+    </div>
+    <div class="hero-strip rise d3">
+      <span>خطة تسويق مكتوبة قبل أي تصميم</span>
+      <span>انستقرام · تيك توك · سناب شات</span>
+      <span>إعلانات مدروسة تجيب مبيعات</span>
+      <span>تقرير بالأرقام كل شهر</span>
+    </div>
+  </div>
+</header>
+
+<section class="system" id="system">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">المنظومة الكاملة</span>
+      <h2 class="h2">كل حلقة في تسويقك، <span class="grad">عند فريق واحد.</span></h2>
+      <p class="lead">أغلب البراندات تتعامل مع مصمم هنا ومعلن هناك، وكل واحد يشتغل بروحه. عندنا كل خطوة تسلّم اللي بعدها، والهدف واحد: تصير الاسم الأول اللي يجي في بال عميلك.</p>
+    </div>
+    <div class="chain">
+      <div class="link"><span class="n">01</span><h3>نفهم نشاطك وسوقك</h3><p>نحلل منافسينك، جمهورك، وأسعار السوق، ونحدد وش اللي يميزك عنهم.</p></div>
+      <div class="link"><span class="n">02</span><h3>نكتب الخطة</h3><p>استراتيجية واضحة بأهداف شهرية، ورسالة براند تكلم عميلك بلهجته.</p></div>
+      <div class="link"><span class="n">03</span><h3>نصمّم ونصوّر</h3><p>تصاميم وفيديوهات وريلز تشد العين وتوقف السكرول.</p></div>
+      <div class="link"><span class="n">04</span><h3>ننشر وندير الحسابات</h3><p>جدول نشر ثابت على انستقرام وتيك توك وسناب، بدون انقطاع.</p></div>
+      <div class="link"><span class="n">05</span><h3>نطلق الإعلانات</h3><p>حملات ممولة موجّهة للي فعلاً يشتري، ونطوّرها كل أسبوع حسب الأرقام.</p></div>
+      <div class="link"><span class="n">06</span><h3>نجهز موقعك</h3><p>موقع أو صفحة هبوط سريعة، مربوطة بالواتساب والحجز.</p></div>
+      <div class="link"><span class="n">07</span><h3>نرد على عملائك</h3><p>تعليقات ورسايل يُرد عليها بسرعة وبأسلوب يحوّل السؤال لطلب.</p></div>
+      <div class="link goal"><span class="n">النتيجة</span><h3>تصير الأول</h3><p>انتشار، ثقة، ومبيعات تزيد شهر بعد شهر.</p></div>
+    </div>
+
+    <div class="monthly">
+      <div>
+        <h3>وش يوصلك كل شهر؟</h3>
+        <p>باقة شهرية واضحة، تعرف فيها بالضبط وش تاخذ. وكل شي قابل للزيادة حسب حجم نشاطك.</p>
+      </div>
+      <div class="tally">
+        <div><b class="grad">16</b><span>تصميم احترافي</span></div>
+        <div><b class="grad">4</b><span>فيديو وريلز</span></div>
+        <div><b class="grad">3</b><span>منصات ندِيرها</span></div>
+        <div><b class="lime">∞</b><span>رد على التعليقات والرسايل</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">وش نحقق لك</span>
+      <h2 class="h2">ثلاث نتايج نشتغل عليها من أول يوم.</h2>
+    </div>
+    <div class="outcomes">
+      <div class="oc">
+        <span class="big">الانتشار</span>
+        <p>يعرفونك قبل ما يدورون عليك.</p>
+        <ul><li>محتوى يومي يناسب كل منصة</li><li>ريلز وترندات بطابع سعودي</li><li>هوية بصرية ثابتة تنحفظ</li></ul>
+      </div>
+      <div class="oc">
+        <span class="big">المبيعات</span>
+        <p>متابعين يتحولون لعملاء يدفعون.</p>
+        <ul><li>إعلانات موجهة حسب المدينة والاهتمام</li><li>عروض وحملات مواسم: رمضان، اليوم الوطني، الجمعة البيضاء</li><li>مسار حجز وطلب يوصل للواتساب مباشرة</li></ul>
+      </div>
+      <div class="oc top">
+        <span class="big lime">الصدارة</span>
+        <p>تصير المرجع في مجالك، والخيار الأول في مدينتك.</p>
+        <ul><li>تحليل منافسين وتحديث الخطة شهرياً</li><li>سمعة رقمية وتقييمات قوية</li><li>تقرير بالأرقام يوضح وين وصلت</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">تصاميمنا</span>
+      <h2 class="h2">شغل يتكلم <span class="grad">عن نفسه.</span></h2>
+      <p class="lead">نماذج من تصاميمنا لقطاعات مختلفة في السوق السعودي. كل تصميم مبني على خطة، مو مجرد شكل حلو.</p>
+    </div>
+    <div class="tabs" role="group" aria-label="تصفية الأعمال">
+      <button class="tab" type="button" data-f="all" aria-pressed="true">الكل</button>
+      <button class="tab" type="button" data-f="med" aria-pressed="false">طبي وصحي</button>
+      <button class="tab" type="button" data-f="food" aria-pressed="false">مطاعم وكافيهات</button>
+      <button class="tab" type="button" data-f="beauty" aria-pressed="false">تجميل وعناية</button>
+      <button class="tab" type="button" data-f="serv" aria-pressed="false">خدمات وعقار</button>
+    </div>
+    <div class="works" id="works">
+
+      <figure class="work" data-c="med" style="margin:0">
+        <div class="post" style="--pbg:#EAF7F4;--pfg:#0D3B36;--pac:#0D3B36">
+          <svg class="shape" viewBox="0 0 200 200" style="width:70%;left:-14%;bottom:-10%"><circle cx="100" cy="100" r="90" fill="#BFE8DF"/><circle cx="100" cy="100" r="55" fill="#9ED9CC"/></svg>
+          <div class="tag"><span>عيادة أسنان · الرياض</span><span>01</span></div>
+          <div><h4>ابتسامتك تستاهل أحسن.</h4><p class="sub">ابتسامة هوليود بجلسة وحدة. استشارة أولى مجاناً.</p><span class="cta">احجز موعدك</span></div>
+        </div>
+        <figcaption><b>حملة إطلاق عيادة</b><span class="kind">بوست</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="food" style="margin:0">
+        <div class="post" style="--pbg:#1F120A;--pfg:#FFE9D2;--pac:#FF8A2B">
+          <svg class="shape" viewBox="0 0 200 200" style="width:110%;right:-30%;top:18%"><circle cx="100" cy="100" r="80" fill="none" stroke="#FF8A2B" stroke-width="16" stroke-dasharray="40 14"/><circle cx="100" cy="100" r="44" fill="#3A2213"/></svg>
+          <div class="tag"><span>مطعم برجر · جدة</span><span>02</span></div>
+          <div><h4>جوعان؟ طلبك يوصلك حار.</h4><p class="sub">توصيل خلال 30 دقيقة لكل أحياء جدة.</p><span class="cta">اطلب الحين</span></div>
+        </div>
+        <figcaption><b>إعلان توصيل</b><span class="kind">ريلز</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="beauty" style="margin:0">
+        <div class="post" style="--pbg:#2B0F2E;--pfg:#FBE4F5;--pac:#F2B5E3">
+          <svg class="shape" viewBox="0 0 200 200" style="width:90%;left:-10%;top:-12%"><path d="M100 10c40 40 60 70 60 100a60 60 0 0 1-120 0c0-30 20-60 60-100z" fill="#4B1C4F"/></svg>
+          <div class="tag"><span>منتجات عناية بالشعر</span><span>03</span></div>
+          <div><h4>شعرك يرجع حي من أول غسلة.</h4><p class="sub">بروتين وكيراتين يرمم التلف من الجذور.</p><span class="cta">اكتشفي المجموعة</span></div>
+        </div>
+        <figcaption><b>إطلاق منتج</b><span class="kind">كاروسيل</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="serv" style="margin:0">
+        <div class="post" style="--pbg:#0E3B2A;--pfg:#FFFFFF;--pac:#FFFFFF">
+          <svg class="shape" viewBox="0 0 200 200" style="width:120%;right:-20%;bottom:-30%"><path d="M0 120 Q50 80 100 120 T200 120 V200 H0z" fill="#145A3F"/><path d="M0 150 Q50 110 100 150 T200 150 V200 H0z" fill="#1B7A55"/></svg>
+          <div class="tag"><span>اليوم الوطني 96</span><span>04</span></div>
+          <div><h4>همّة حتى القمّة.</h4><p class="sub">عروض اليوم الوطني على كل الخدمات لمدة أسبوع.</p><span class="cta">شوف العرض</span></div>
+        </div>
+        <figcaption><b>حملة موسمية</b><span class="kind">ستوري</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="med" style="margin:0">
+        <div class="post" style="--pbg:#0B1A33;--pfg:#E6F0FF;--pac:#4FC3FF">
+          <svg class="shape" viewBox="0 0 200 200" style="width:100%;left:-20%;top:10%"><path d="M10 110h40l14-40 24 80 18-56 12 16h72" fill="none" stroke="#4FC3FF" stroke-width="6" stroke-linejoin="round" opacity=".55"/></svg>
+          <div class="tag"><span>مركز استشفاء رياضي</span><span>05</span></div>
+          <div><h4>ارجع للملعب أسرع.</h4><p class="sub">جلسات استشفاء وعلاج إصابات بإشراف مختصين.</p><span class="cta">احجز جلستك</span></div>
+        </div>
+        <figcaption><b>محتوى توعوي</b><span class="kind">ريلز</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="serv" style="margin:0">
+        <div class="post" style="--pbg:#F4F1FF;--pfg:#2A0B6B;--pac:#4004A8">
+          <svg class="shape" viewBox="0 0 200 200" style="width:80%;right:-12%;top:-8%"><g fill="#DCD2FF"><circle cx="60" cy="60" r="12"/><circle cx="120" cy="40" r="7"/><circle cx="150" cy="100" r="16"/><circle cx="90" cy="120" r="9"/></g></svg>
+          <div class="tag"><span>شركة تنظيف · مكة</span><span>06</span></div>
+          <div><h4>بيتك يلمع قبل ما يوصلون الضيوف.</h4><p class="sub">تنظيف شامل وتعقيم بأيدي فريق مدرّب.</p><span class="cta">احجز بالواتساب</span></div>
+        </div>
+        <figcaption><b>إعلان خدمة</b><span class="kind">بوست</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="food" style="margin:0">
+        <div class="post" style="--pbg:#E9DFCC;--pfg:#2C1D10;--pac:#2C1D10">
+          <svg class="shape" viewBox="0 0 200 200" style="width:70%;left:10%;top:16%"><ellipse cx="100" cy="150" rx="70" ry="14" fill="#D3C3A6"/><path d="M50 70h100l-10 70a10 10 0 0 1-10 9H70a10 10 0 0 1-10-9z" fill="#B88E5E"/><path d="M150 85c22 0 22 30 0 30" fill="none" stroke="#B88E5E" stroke-width="8"/></svg>
+          <div class="tag"><span>كافيه مختص · الخبر</span><span>07</span></div>
+          <div><h4>قهوتك الصباحية علينا.</h4><p class="sub">أول كوب مجاناً لكل زبون جديد هالأسبوع.</p><span class="cta">زورنا اليوم</span></div>
+        </div>
+        <figcaption><b>عرض افتتاح</b><span class="kind">بوست</span></figcaption>
+      </figure>
+
+      <figure class="work" data-c="serv" style="margin:0">
+        <div class="post" style="--pbg:#141414;--pfg:#F5F5F0;--pac:#E7C26B">
+          <svg class="shape" viewBox="0 0 200 200" style="width:90%;right:-6%;bottom:6%"><g fill="none" stroke="#E7C26B" stroke-width="3" opacity=".6"><path d="M30 170V90l50-40 50 40v80"/><path d="M110 170v-60l40-30 40 30v60"/><path d="M10 170h190"/></g></svg>
+          <div class="tag"><span>مقاولات وتشطيبات</span><span>08</span></div>
+          <div><h4>البناء له مقياس.</h4><p class="sub">من المخطط للتسليم، بجودة تشوفها وتلمسها.</p><span class="cta">اطلب عرض سعر</span></div>
+        </div>
+        <figcaption><b>هوية حملة</b><span class="kind">حملة</span></figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">فيديو تعريفي</span>
+      <h2 class="h2">٤٥ ثانية <span class="grad">تعرّفك علينا.</span></h2>
+      <p class="lead">اضغط تشغيل وشوف كيف نحوّل أي نشاط من حساب عادي لبراند الكل يتكلم عنه.</p>
+    </div>
+    <!-- لاستبدال العرض المتحرك بفيديو حقيقي: ضع <video src="medico-reel.mp4" controls playsinline poster="..."></video> مكان الـ canvas وزر التشغيل -->
+    <div class="reel-box" id="reelBox">
+      <canvas id="reelCv" aria-label="فيديو تعريفي عن ميديكو"></canvas>
+      <button class="play" id="playBtn" type="button" aria-label="تشغيل الفيديو">
+        <span class="pb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
+      <div class="reel-bar"><i id="reelProg"></i></div>
+    </div>
+    <div class="reel-meta"><span>ميديكو · قصة كل عميل يبدأ معنا</span><span id="reelTime">0:00</span></div>
+  </div>
+</section>
+
+<section id="clients" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">آراء العملاء</span>
+      <h2 class="h2">لا تاخذ كلامنا، <span class="grad">اسمع منهم.</span></h2>
+    </div>
+    <div class="quotes">
+      <figure class="q" style="margin:0">
+        <span class="sample">نص تجريبي · يُستبدل بتقييم حقيقي</span>
+        <blockquote>كنا ننزل بوستات بدون أي خطة. من أول شهر مع ميديكو صار عندنا جدول واضح، والحجوزات على الواتساب زادت بشكل ملحوظ. فريق يفهم السوق السعودي صدق.</blockquote>
+        <div class="who"><span class="av">ع</span><div><b>اسم العميل</b><span>صاحب عيادة · الرياض</span></div><span class="stars" style="margin-inline-start:auto">★★★★★</span></div>
+      </figure>
+      <figure class="q" style="margin:0">
+        <span class="sample">نص تجريبي · يُستبدل بتقييم حقيقي</span>
+        <blockquote>أكثر شي ريحني إني ما صرت أتابع مع خمس جهات. واحد يرد علي في كل شي، من التصميم للإعلان للرد على العملاء. والتقرير الشهري يوضح كل ريال وين راح.</blockquote>
+        <div class="who"><span class="av">م</span><div><b>اسم العميل</b><span>مالك مطعم · جدة</span></div><span class="stars" style="margin-inline-start:auto">★★★★★</span></div>
+      </figure>
+      <figure class="q" style="margin:0">
+        <span class="sample">نص تجريبي · يُستبدل بتقييم حقيقي</span>
+        <blockquote>الفيديوهات اللي سووها لمنتجاتنا انتشرت على تيك توك أكثر من أي شي نزلناه قبل. صاروا يعرفون البراند ويطلبونه بالاسم.</blockquote>
+        <div class="who"><span class="av">ن</span><div><b>اسم العميل</b><span>براند عناية · الدمام</span></div><span class="stars" style="margin-inline-start:auto">★★★★★</span></div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap trust">
+    <div class="sec-head" style="margin:0">
+      <span class="eyebrow">ليش تثق فينا</span>
+      <h2 class="h2">شريك يحسب نجاحك <span class="grad">نجاحه.</span></h2>
+      <p class="lead">ما نبدأ أي تصميم قبل ما نفهم نشاطك ونكتب لك خطة. وكل شهر تشوف بعينك وين وصلنا بالأرقام.</p>
+      <div class="sectors" aria-label="القطاعات اللي اشتغلنا معها">
+        <span>مجمعات طبية</span><span>عيادات أسنان</span><span>مراكز رياضية</span><span>منتجات تجميل وشعر</span><span>شركات تنظيف</span><span>مقاولات</span><span>أكاديميات تدريب</span><span>مطاعم وكافيهات</span>
+      </div>
+    </div>
+    <div class="trust-list">
+      <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1M16 3.5a4 4 0 0 1 0 7.5M22 21v-1a6 6 0 0 0-4-5.6"/></svg></span><div><h3>فريق متكامل، مو شخص واحد</h3><p>استراتيجي، مصمم، مونتير، معلن، ومدير حسابات. كل واحد متخصص في شغله.</p></div></div>
+      <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><div><h3>خطة مكتوبة قبل أي شغل</h3><p>بريف استراتيجي لكل عميل: مين جمهورك، وش رسالتك، ووش هدف كل شهر.</p></div></div>
+      <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span><div><h3>أرقام واضحة كل شهر</h3><p>وصول، تفاعل، رسايل، ومبيعات. تعرف وش اشتغل ووش نطوّره.</p></div></div>
+      <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><h3>نفهم السوق السعودي</h3><p>أغلب عملائنا في المملكة. نكتب بلهجة جمهورك، ونعرف مواسمه وترنداته.</p></div></div>
+      <div class="ti"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.6-7.2L21 3v6h-6"/></svg></span><div><h3>رد سريع ومتابعة مستمرة</h3><p>قروب واتساب مباشر مع فريقك، وتعديلات بدون تعقيد.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <span class="eyebrow">احجز استشارتك</span>
+      <h2 class="h2" style="margin-top:14px">خمس خطوات، <span class="grad">ونكلمك على الواتساب.</span></h2>
+      <p class="lead" style="margin-top:14px">جاوب على كم سؤال سريع عشان نجهز لك تصور مبدئي قبل المكالمة. ما ياخذ منك دقيقتين.</p>
+      <ol class="steps-rail" id="rail">
+        <li class="on">نشاطك</li><li>هدفك</li><li>وضعك الحالي</li><li>بياناتك</li><li>إرسال الطلب</li>
+      </ol>
+      <div class="quick">
+        <span>عندك سؤال سريع وما تبي تعبي النموذج؟</span>
+        <span class="num" id="numTxt">+20 111 166 828</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn wa-btn" id="quickWa" href="#" target="_blank" rel="noopener" style="padding:10px 18px;font-size:14px">راسلنا واتساب</a>
+          <button class="btn btn-ghost" type="button" id="copyNum" style="padding:10px 18px;font-size:14px">انسخ الرقم</button>
+        </div>
+      </div>
+    </div>
+
+    <form class="panel" id="bookForm" novalidate>
+      <div class="prog"><i id="progBar"></i></div>
+
+      <div class="step" data-step="0">
+        <h3>وش نوع نشاطك؟</h3>
+        <p class="hint">اختر الأقرب لنشاطك.</p>
+        <div class="opts">
+          <div class="opt"><input type="radio" name="biz" id="b1" value="عيادة / مجمع طبي" checked><label for="b1"><span class="dot"></span>عيادة / مجمع طبي</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b2" value="مطعم / كافيه"><label for="b2"><span class="dot"></span>مطعم / كافيه</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b3" value="متجر إلكتروني"><label for="b3"><span class="dot"></span>متجر إلكتروني</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b4" value="تجميل وعناية"><label for="b4"><span class="dot"></span>تجميل وعناية</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b5" value="عقار ومقاولات"><label for="b5"><span class="dot"></span>عقار ومقاولات</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b6" value="شركة خدمات"><label for="b6"><span class="dot"></span>شركة خدمات</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b7" value="تدريب وتعليم"><label for="b7"><span class="dot"></span>تدريب وتعليم</label></div>
+          <div class="opt"><input type="radio" name="biz" id="b8" value="نشاط آخر"><label for="b8"><span class="dot"></span>غيره</label></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="1" hidden>
+        <h3>وش تبي نحقق لك؟</h3>
+        <p class="hint">تقدر تختار أكثر من هدف.</p>
+        <div class="opts">
+          <div class="opt"><input type="checkbox" name="goal" id="g1" value="انتشار ومعرفة بالبراند" checked><label for="g1"><span class="dot"></span>انتشار ومعرفة بالبراند</label></div>
+          <div class="opt"><input type="checkbox" name="goal" id="g2" value="زيادة المبيعات والحجوزات"><label for="g2"><span class="dot"></span>زيادة المبيعات والحجوزات</label></div>
+          <div class="opt"><input type="checkbox" name="goal" id="g3" value="إطلاق براند جديد"><label for="g3"><span class="dot"></span>إطلاق براند جديد</label></div>
+          <div class="opt"><input type="checkbox" name="goal" id="g4" value="موقع أو صفحة هبوط"><label for="g4"><span class="dot"></span>موقع أو صفحة هبوط</label></div>
+          <div class="opt"><input type="checkbox" name="goal" id="g5" value="إدارة إعلانات"><label for="g5"><span class="dot"></span>إدارة إعلانات</label></div>
+          <div class="opt"><input type="checkbox" name="goal" id="g6" value="الباقة الكاملة"><label for="g6"><span class="dot"></span>أبي كل شي، الباقة الكاملة</label></div>
+        </div>
+        <p class="note" id="goalErr" hidden style="color:#FF8FA8">اختر هدف واحد على الأقل.</p>
+      </div>
+
+      <div class="step" data-step="2" hidden>
+        <h3>وين وضعك الحين؟</h3>
+        <p class="hint">عشان نعرف من وين نبدأ معك.</p>
+        <div class="opts" style="grid-template-columns:1fr">
+          <div class="opt"><input type="radio" name="now" id="n1" value="ما عندي حسابات أو بادي من الصفر" checked><label for="n1"><span class="dot"></span>ما عندي حسابات، بادي من الصفر</label></div>
+          <div class="opt"><input type="radio" name="now" id="n2" value="عندي حسابات بس التفاعل ضعيف"><label for="n2"><span class="dot"></span>عندي حسابات بس التفاعل ضعيف</label></div>
+          <div class="opt"><input type="radio" name="now" id="n3" value="عندي تفاعل وأبي أحوله لمبيعات"><label for="n3"><span class="dot"></span>عندي تفاعل وأبي أحوله لمبيعات</label></div>
+          <div class="opt"><input type="radio" name="now" id="n4" value="أعلن وما أشوف نتيجة"><label for="n4"><span class="dot"></span>أعلن وما أشوف نتيجة</label></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="3" hidden>
+        <h3>عرّفنا عليك</h3>
+        <p class="hint">بياناتك تروح لنا على الواتساب فقط.</p>
+        <div class="fields">
+          <div class="f"><label for="fName">الاسم</label><input id="fName" autocomplete="name" placeholder="مثال: عبدالله" required><span class="err" id="eName"></span></div>
+          <div class="f"><label for="fBrand">اسم النشاط</label><input id="fBrand" placeholder="مثال: عيادات النخبة"><span class="err"></span></div>
+          <div class="f"><label for="fCity">المدينة</label>
+            <select id="fCity"><option>الرياض</option><option>جدة</option><option>مكة المكرمة</option><option>المدينة المنورة</option><option>الدمام / الخبر</option><option>القصيم</option><option>أبها / خميس مشيط</option><option>تبوك</option><option>مدينة ثانية في السعودية</option><option>مصر</option><option>دولة أخرى</option></select><span class="err"></span></div>
+          <div class="f"><label for="fPhone">رقم الجوال</label><input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xxxxxxxx" required><span class="err" id="ePhone"></span></div>
+          <div class="f full"><label for="fTime">الوقت المناسب نكلمك فيه</label>
+            <select id="fTime"><option>الصباح (9 - 12)</option><option>الظهر (12 - 4)</option><option selected>المساء (4 - 9)</option><option>أي وقت</option></select></div>
+          <div class="f full"><label for="fNote">شي تحب تضيفه؟ (اختياري)</label><textarea id="fNote" rows="3" placeholder="مثال: عندنا فرعين ونبي نركز على الفرع الجديد"></textarea></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="4" hidden>
+        <h3>طلبك جاهز يا <span id="hiName" class="lime"></span></h3>
+        <p class="hint">هذي الرسالة اللي بتوصلنا. اضغط الزر وبيفتح لك الواتساب والرسالة مكتوبة، وبس اضغط إرسال.</p>
+        <div class="msg" id="msgBox"></div>
+        <div class="sum-actions">
+          <a class="btn wa-btn" id="sendWa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>
+            أرسل الطلب على واتساب</a>
+          <button class="btn btn-ghost" type="button" id="copyMsg">انسخ الرسالة</button>
+        </div>
+        <p class="note">إذا ما فتح الواتساب، انسخ الرسالة وأرسلها على الرقم <span style="direction:ltr;unicode-bidi:isolate">+20 111 166 828</span></p>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn btn-ghost" type="button" id="prevBtn" disabled>رجوع</button>
+        <button class="btn btn-lime" type="submit" id="nextBtn">التالي</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">أسئلة تتكرر</span>
+      <h2 class="h2">عندك سؤال؟ <span class="grad">غالباً جوابه هنا.</span></h2>
+    </div>
+    <div class="faq">
+      <details open><summary>متى أبدأ أشوف نتايج؟</summary><p>الانتشار والتفاعل تبدأ تبين من أول شهر مع انتظام النشر والإعلانات. المبيعات تثبت وتكبر من الشهر الثاني والثالث لما نكون جمعنا بيانات كافية عن جمهورك ونطوّر الحملات عليها.</p></details>
+      <details><summary>هل ميزانية الإعلانات داخلة في الباقة؟</summary><p>لا، الباقة تشمل إدارة الإعلانات بالكامل، وميزانية الإعلان تدفعها مباشرة للمنصة. ونساعدك تحدد الميزانية المناسبة لهدفك ومدينتك.</p></details>
+      <details><summary>أنا في السعودية وأنتم في مصر، كيف نتواصل؟</summary><p>أغلب عملائنا في المملكة. نشتغل معك أونلاين بالكامل: قروب واتساب، مكالمات فيديو، ومتابعة يومية. ونكتب المحتوى باللهجة السعودية ونتابع المواسم والترندات المحلية.</p></details>
+      <details><summary>هل لازم أوفر لكم صور وفيديوهات؟</summary><p>نحتاج منك صور أو مقاطع للمكان والمنتجات، ونرسل لك دليل تصوير بسيط تقدر تصوره بجوالك. والباقي من تصميم ومونتاج وموشن علينا.</p></details>
+      <details><summary>وش يصير بعد ما أرسل الطلب؟</summary><p>نراجع إجاباتك، ونتواصل معك على الواتساب نحدد موعد مكالمة قصيرة. بعدها نرسل لك تصور مبدئي وعرض سعر يناسب نشاطك.</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap final">
+    <span class="eyebrow">خطوتك الجاية</span>
+    <h2>منافسينك بدأوا. <span class="grad">متى تبدأ أنت؟</span></h2>
+    <a class="btn btn-lime" href="#book">احجز استشارتك المجانية</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="data:image/png;base64,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" alt="Medico Agency">
+    <span>ميديكو للتسويق الإلكتروني · السعودية ومصر</span>
+    <span style="direction:ltr;unicode-bidi:isolate">© 2026 Medico Agency</span>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="#" target="_blank" rel="noopener" aria-label="تواصل معنا على واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></svg>
+</a>
+<div class="toast" id="toast" hidden></div>
+</div>
+
+<script>
+(function(){
+  // رقم الواتساب: غيّره هنا فقط (بدون + وبدون أصفار في البداية)
+  var WA = "20111166828";
+  var waLink = function(t){ return "https://wa.me/" + WA + "?text=" + encodeURIComponent(t); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function(s){ return document.querySelector(s); };
+
+  $("#fab").href = waLink("السلام عليكم، حاب أستفسر عن خدمات ميديكو للتسويق");
+  $("#quickWa").href = waLink("السلام عليكم، عندي استفسار سريع عن خدماتكم");
+
+  function toast(t){ var el=$("#toast"); el.textContent=t; el.hidden=false; clearTimeout(toast._t); toast._t=setTimeout(function(){el.hidden=true},2200); }
+  function copy(text, el){
+    var done=function(){ toast("تم النسخ"); };
+    try{ navigator.clipboard.writeText(text).then(done,function(){ sel(el); }); }catch(e){ sel(el); }
+  }
+  function sel(el){ if(!el) return; var r=document.createRange(); r.selectNodeContents(el); var s=getSelection(); s.removeAllRanges(); s.addRange(r); toast("الرقم محدد، انسخه يدوياً"); }
+  $("#copyNum").addEventListener("click",function(){ copy("+"+WA, $("#numTxt")); });
+
+  /* ---------- hero contour blob ---------- */
+  var cv=$("#blob"), cx=cv.getContext("2d"), W=0,H=0,DPR=Math.min(2,devicePixelRatio||1);
+  function size(){ var r=cv.getBoundingClientRect(); W=r.width; H=r.height; cv.width=W*DPR; cv.height=H*DPR; cx.setTransform(DPR,0,0,DPR,0,0); }
+  function drawBlob(t){
+    cx.clearRect(0,0,W,H);
+    var R=Math.min(W,H)*0.42, ox=W*0.5, oy=H*0.48, rings=34;
+    for(var i=0;i<rings;i++){
+      var k=i/rings, r=R*(1-k*0.92);
+      cx.beginPath();
+      for(var a=0;a<=Math.PI*2+0.01;a+=0.06){
+        var w=Math.sin(a*3+t*0.6+k*4)*0.09+Math.sin(a*5-t*0.4+k*7)*0.05+Math.cos(a*2+t*0.3)*0.06;
+        var rr=r*(1+w*(1-k*0.6));
+        var x=ox+Math.cos(a)*rr*1.08, y=oy+Math.sin(a)*rr*0.9 - k*R*0.18;
+        a===0?cx.moveTo(x,y):cx.lineTo(x,y);
+      }
+      var hue=Math.round(262+k*14), light=Math.round(40+k*35);
+      cx.strokeStyle="hsla("+hue+",95%,"+light+"%,"+(0.18+k*0.55)+")";
+      cx.lineWidth=1.1;
+      cx.stroke();
+    }
+    var g=cx.createRadialGradient(ox,oy-R*0.2,0,ox,oy,R*0.9);
+    g.addColorStop(0,"rgba(122,60,255,.28)"); g.addColorStop(1,"rgba(122,60,255,0)");
+    cx.fillStyle=g; cx.fillRect(0,0,W,H);
+  }
+  size(); addEventListener("resize",function(){ size(); if(reduce) drawBlob(0); });
+  if(reduce){ drawBlob(0); } else { (function loop(ts){ drawBlob(ts/1000); requestAnimationFrame(loop); })(0); }
+
+  /* ---------- portfolio filter ---------- */
+  document.querySelectorAll(".tab").forEach(function(b){
+    b.addEventListener("click",function(){
+      document.querySelectorAll(".tab").forEach(function(x){ x.setAttribute("aria-pressed", x===b?"true":"false"); });
+      var f=b.dataset.f;
+      document.querySelectorAll(".work").forEach(function(w){ w.hidden = !(f==="all"||w.dataset.c===f); });
+    });
+  });
+
+  /* ---------- reel (kinetic intro) ---------- */
+  var rc=$("#reelCv"), rx=rc.getContext("2d"), RW=0,RH=0;
+  var scenes=[
+    {k:"ميديكو للتسويق", b:"عندك نشاط ممتاز…", s:"بس محد يعرف عنه؟"},
+    {k:"المشكلة", b:"بوستات بدون خطة", s:"وإعلانات تصرف وما تجيب"},
+    {k:"الحل", b:"منظومة تسويق كاملة", s:"خطة · محتوى · تصميم · فيديو · إعلانات"},
+    {k:"كل شهر", b:"16 تصميم · 4 فيديو", s:"على انستقرام وتيك توك وسناب"},
+    {k:"وفوقها", b:"نرد على عملائك", s:"ونحوّل الرسالة لطلب"},
+    {k:"النتيجة", b:"انتشار. مبيعات.", s:"وتصير الأول في مجالك", lime:true},
+    {k:"ابدأ اليوم", b:"احجز استشارتك", s:"خطوات بسيطة وتوصلنا على الواتساب", lime:true}
+  ];
+  var DUR=6.4, total=scenes.length*DUR, playing=false, t0=0, raf=0;
+  function rsize(){ var r=rc.getBoundingClientRect(); RW=r.width; RH=r.height; rc.width=RW*DPR; rc.height=RH*DPR; rx.setTransform(DPR,0,0,DPR,0,0); }
+  function ease(x){ return 1-Math.pow(1-Math.min(1,Math.max(0,x)),3); }
+  function drawReel(time, idle){
+    var i=Math.min(scenes.length-1, Math.floor(time/DUR)), lt=time-i*DUR, sc=scenes[i];
+    var g=rx.createLinearGradient(0,0,RW,RH); g.addColorStop(0,"#0A0613"); g.addColorStop(1,"#1D0A4A");
+    rx.fillStyle=g; rx.fillRect(0,0,RW,RH);
+    // rings
+    var cxp=RW*0.2, cyp=RH*0.55;
+    for(var j=0;j<14;j++){
+      rx.beginPath();
+      var r=(RH*0.08)+j*RH*0.05 + Math.sin(time*0.8+j)*4;
+      rx.arc(cxp,cyp,r,0,Math.PI*2);
+      rx.strokeStyle="rgba(122,60,255,"+(0.5-j*0.03)+")"; rx.lineWidth=1; rx.stroke();
+    }
+    var a=idle?1:ease(lt/0.8), out=idle?0:ease((lt-(DUR-0.6))/0.6);
+    var fs=Math.max(22,RW*0.062), ks=Math.max(12,RW*0.02), ss=Math.max(13,RW*0.026);
+    rx.save(); rx.direction="rtl"; rx.textAlign="right";
+    var x=RW*0.92, y=RH*0.38;
+    rx.globalAlpha=a*(1-out);
+    rx.fillStyle="#C8F23A"; rx.font="600 "+ks+"px Alexandria, sans-serif";
+    rx.fillText(sc.k, x, y-fs*0.95 + (1-a)*10);
+    rx.fillStyle=sc.lime?"#C8F23A":"#F4F0FF"; rx.font="900 "+fs+"px Alexandria, sans-serif";
+    rx.fillText(sc.b, x + (1-a)*40, y+fs*0.3);
+    rx.globalAlpha=ease((lt-0.4)/0.8)*(1-out); if(idle) rx.globalAlpha=1;
+    rx.fillStyle="#A99DC8"; rx.font="500 "+ss+"px 'IBM Plex Sans Arabic', sans-serif";
+    rx.fillText(sc.s, x, y+fs*0.3+ss*2.1);
+    rx.restore();
+    // brand line
+    rx.globalAlpha=1; rx.fillStyle="#7A3CFF";
+    rx.fillRect(RW*0.92 - (idle?RW*0.18:RW*0.18*ease(lt/1.2)), RH*0.78, (idle?RW*0.18:RW*0.18*ease(lt/1.2)), 3);
+    rx.fillStyle="rgba(244,240,255,.55)"; rx.font="600 "+Math.max(11,RW*0.016)+"px Alexandria, sans-serif"; rx.textAlign="left";
+    rx.fillText("MEDICO AGENCY", RW*0.05, RH*0.9);
+  }
+  function fmt(s){ s=Math.floor(s); return Math.floor(s/60)+":"+String(s%60).padStart(2,"0"); }
+  function tick(ts){
+    var time=(ts-t0)/1000;
+    if(time>=total){ playing=false; drawReel(total-0.01,true); $("#reelProg").style.width="100%"; $("#playBtn").hidden=false; $("#reelTime").textContent=fmt(total); return; }
+    drawReel(time,false);
+    $("#reelProg").style.width=(time/total*100)+"%";
+    $("#reelTime").textContent=fmt(time)+" / "+fmt(total);
+    raf=requestAnimationFrame(tick);
+  }
+  $("#playBtn").addEventListener("click",function(){
+    $("#playBtn").hidden=true; playing=true; cancelAnimationFrame(raf);
+    requestAnimationFrame(function(ts){ t0=ts; tick(ts); });
+  });
+  rc.addEventListener("click",function(){ if(playing){ playing=false; cancelAnimationFrame(raf); $("#playBtn").hidden=false; } });
+  rsize(); $("#reelTime").textContent=fmt(total);
+  (document.fonts?document.fonts.ready:Promise.resolve()).then(function(){ rsize(); drawReel(0,true); });
+  addEventListener("resize",function(){ rsize(); if(!playing) drawReel(0,true); });
+
+  /* ---------- booking stepper ---------- */
+  var step=0, N=5, steps=document.querySelectorAll(".step"), rail=document.querySelectorAll("#rail li");
+  var form=$("#bookForm"), next=$("#nextBtn"), prev=$("#prevBtn");
+  function val(name){ var e=form.querySelector("input[name="+name+"]:checked"); return e?e.value:""; }
+  function vals(name){ return Array.prototype.map.call(form.querySelectorAll("input[name="+name+"]:checked"),function(e){return e.value}); }
+  function buildMsg(){
+    var name=$("#fName").value.trim(), brand=$("#fBrand").value.trim();
+    var lines=[
+      "السلام عليكم فريق ميديكو 👋",
+      "حاب أحجز استشارة تسويقية.",
+      "",
+      "الاسم: "+name,
+      brand?("النشاط: "+brand+" ("+val("biz")+")"):("نوع النشاط: "+val("biz")),
+      "المدينة: "+$("#fCity").value,
+      "الجوال: "+$("#fPhone").value.trim(),
+      "",
+      "الأهداف: "+vals("goal").join("، "),
+      "الوضع الحالي: "+val("now"),
+      "الوقت المناسب للتواصل: "+$("#fTime").value
+    ];
+    var note=$("#fNote").value.trim(); if(note){ lines.push("ملاحظة: "+note); }
+    return lines.join("\n");
+  }
+  function show(){
+    steps.forEach(function(s,i){ s.hidden = i!==step; });
+    rail.forEach(function(li,i){ li.className = i<step?"done":(i===step?"on":""); });
+    $("#progBar").style.width=((step+1)/N*100)+"%";
+    prev.disabled = step===0;
+    next.hidden = step===N-1;
+    next.textContent = step===N-2 ? "جهّز الطلب" : "التالي";
+    if(step===N-1){
+      var m=buildMsg(); $("#msgBox").textContent=m; $("#sendWa").href=waLink(m);
+      $("#hiName").textContent=$("#fName").value.trim();
+    }
+  }
+  function validate(){
+    if(step===1){ var ok=vals("goal").length>0; $("#goalErr").hidden=ok; return ok; }
+    if(step===3){
+      var ok2=true, n=$("#fName").value.trim(), p=$("#fPhone").value.replace(/[^\d+]/g,"");
+      $("#eName").textContent = n? "" : "اكتب اسمك عشان نعرف نناديك.";
+      if(!n) ok2=false;
+      if(p.replace(/\D/g,"").length<9){ $("#ePhone").textContent="اكتب رقم جوال صحيح، مثال: 0551234567"; ok2=false; } else $("#ePhone").textContent="";
+      if(!ok2){ (n?$("#fPhone"):$("#fName")).focus(); }
+      return ok2;
+    }
+    return true;
+  }
+  form.addEventListener("submit",function(e){ e.preventDefault(); if(!validate()) return; if(step<N-1){ step++; show(); form.scrollIntoView({block:"start",behavior:reduce?"auto":"smooth"}); } });
+  prev.addEventListener("click",function(){ if(step>0){ step--; next.hidden=false; show(); } });
+  $("#copyMsg").addEventListener("click",function(){ copy($("#msgBox").textContent, $("#msgBox")); });
+  show();
+})();
+</script>
+
+</body></html>
